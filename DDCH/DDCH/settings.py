@@ -5,7 +5,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Joseph Redfern', 'joseph@redfern.me'),
 )
 
 MANAGERS = ADMINS
@@ -34,7 +34,7 @@ TIME_ZONE = 'Europe/London'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-gb'
 
 SITE_ID = 1
 
@@ -125,7 +125,7 @@ INSTALLED_APPS = (
     'core',
     #'django.contrib.admindocs',
     #'messaging',
-    #'billing'
+    'bills',
 )
 
 
