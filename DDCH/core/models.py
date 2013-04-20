@@ -10,12 +10,16 @@ class AbstractBase(models.Model):
 
     """
     AbstractBase class for handling setting id's and
+    setting creation dates of objects.
 
     """
     id = models.CharField(max_length=36, primary_key=True, editable=False)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __init__(self, *args, **kwargs):
+        """
+        Overrides the Django __init__ method to set ID.
+        """
         super(AbstractBase, self).__init__(*args, **kwargs)
         if not self.id:
             self.id = str(uuid.uuid4())
@@ -35,8 +39,12 @@ class AbstractBase(models.Model):
 
 
 class House(AbstractBase):
+    """
+    A house that multiple users are attached to.
+    """
     name = models.CharField(max_length=100)
     postcode = models.CharField(max_length=7)
+    rooms = models.IntegerField()
 
 
 class User(AbstractUser, AbstractBase):
