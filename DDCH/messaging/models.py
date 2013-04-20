@@ -17,7 +17,7 @@ class Message(AbstractBase):
     )
     sent_date = models.DateField(auto_now_add=True)
     message = models.TextField(max_length=65535)
-    read_date = models.DateField()
+    read_date = models.DateField(null=True, blank=True)
 
     def save(self):
         account = "AC54e70c20c39d9c982827a1a7f5c926f4"
