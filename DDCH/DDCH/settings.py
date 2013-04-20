@@ -125,9 +125,12 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'core',
     #'django.contrib.admindocs',
-    #'messaging',
+    'messaging',
+    'bills',
     #'billing'
 )
+
+LOGIN_URL = '/'
 
 MEDIA_ROOT = os.path.join(SITE_ROOT, 'uploads')
 

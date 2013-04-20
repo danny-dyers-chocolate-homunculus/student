@@ -7,14 +7,19 @@ import hashlib
 
 
 class AbstractBase(models.Model):
+
     """
     AbstractBase class for handling setting id's and
+    setting creation dates of objects.
 
     """
     id = models.CharField(max_length=36, primary_key=True, editable=False)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __init__(self, *args, **kwargs):
+        """
+        Overrides the Django __init__ method to set ID.
+        """
         super(AbstractBase, self).__init__(*args, **kwargs)
         if not self.id:
             self.id = str(uuid.uuid4())
@@ -34,8 +39,12 @@ class AbstractBase(models.Model):
 
 
 class House(AbstractBase):
+    """
+    A house that multiple users are attached to.
+    """
     name = models.CharField(max_length=100)
     postcode = models.CharField(max_length=7)
+    rooms = models.IntegerField()
 
 
 class User(AbstractUser, AbstractBase):
@@ -86,6 +95,7 @@ class Post(AbstractBase):
 
 
 class ViewLog(AbstractBase):
+
     """
     Used for keeping track of view counts of objects. Uses a generic relation
     to be used with any model type. This should be implemented in other apps views.
@@ -110,3 +120,12 @@ class ViewLog(AbstractBase):
         view.user = user
         view.save()
         return view
+
+
+class contact(AbstractBase):
+    name = models.CharField(max_length=255)
+    house = models.ForeignKey(House)
+    phone = models.CharField(max_length=12, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    website = models.URLField(null=True, blank=True)
+    notes = models.TextField(max_length=65535, blank=True, null=True)
