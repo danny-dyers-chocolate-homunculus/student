@@ -130,6 +130,8 @@ INSTALLED_APPS = (
     #'billing'
 )
 
+LOGIN_URL = '/'
+
 MEDIA_ROOT = os.path.join(SITE_ROOT, 'uploads')
 
 
