@@ -31,7 +31,7 @@ class RecurringBill(AbstractBill):
         (WEEKLY, 'Weekly'),
         (DAILY, 'Daily'),
         (MONTHLY, 'Monthly'),
-        (ANNUALLY, 'Annual'),
+        (ANNUALLY, 'Annually'),
     )
 
     recurance = models.CharField(max_length=1,
@@ -41,6 +41,15 @@ class RecurringBill(AbstractBill):
 
 
 class BillPayment(AbstractBase):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
     bill = generic.GenericForeignKey('content_type', 'object_id')
     object_id = models.CharField(max_length=36)
-    content_type = models.ForeignKey(ContentType)
+    content_type = models.ForeignKey(
+        ContentType,
+        limit_choices_to=(
+            models.Q(app_label='bills', model='recurringbill') |
+            models.Q(app_label='bills', model='fixedbill')
+        )
+    )
+
+    amount = models.DecimalField(max_digits=8, decimal_places=2)
