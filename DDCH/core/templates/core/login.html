@@ -4,15 +4,16 @@
 	<meta charset=utf-8 />
 	<title>makazi</title>
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
-	<style type="text/css">
-
-	</style>
 </head>
 <body>
-	<div>
+	<div class='login_content'>
 		<div>
-			<form>
-				{{ }}
+			<h3>cfhack<sup><small>BETA</small></sup></h3>
+			<p>Please insert your details.</p>
+			<form action="/contact/" method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<input type='submit'>
 			</form>
 		</div>
 	</div>
