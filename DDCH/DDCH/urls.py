@@ -6,7 +6,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^login/$', 'core.views.custom_login', name='home'),
+    url(r'^login$', 'core.views.custom_login', name='login'),
+    url(r'^dashboard$', 'core.views.dashboard', name='home'),
     # url(r'^DDCH/', include('DDCH.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
