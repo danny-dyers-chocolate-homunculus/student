@@ -1,5 +1,5 @@
 # Create your views here.
-from django.contrib.auth import login
+from django.contrib.auth.views import login
 from django.shortcuts import redirect
 
 
