@@ -3,9 +3,14 @@ from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from django.contrib.contenttypes import generic
 import uuid
+import hashlib
 
 
 class AbstractBase(models.Model):
+    """
+    AbstractBase class for handling setting id's and
+
+    """
     id = models.CharField(max_length=36, primary_key=True, editable=False)
     date_created = models.DateTimeField(auto_now_add=True)
 
@@ -36,19 +41,48 @@ class House(AbstractBase):
 class User(AbstractUser, AbstractBase):
     house = models.ForeignKey(House, blank=True, null=True)
 
+    GRAVATAR_URL = "http://www.gravatar.com/avatar/"
+    ROBOHASH_URL = "http://robohash.org/"
+
+    def _get_email_hash(self):
+        h = hashlib.md5()
+        h.update(self.email)
+        return h.hexdigest()
+
+    @property
+    def profile_picture(self):
+        return ("%s%s?d=%s%s.png&s=200") % (self.GRAVATAR_URL,
+                                            self._get_email_hash(),
+                                            self.ROBOHASH_URL,
+                                            self._get_email_hash())
+
 
 class Post(AbstractBase):
     text = models.TextField()
-    posted_by = models.ForeignKey(settings.USER_AUTH_MODEL)
+    posted_by = models.ForeignKey(settings.AUTH_USER_MODEL)
     image = models.ImageField(upload_to='posts', blank=True, null=True)
-    post = models.ForeignKey(self, blank=True, null=True)
+    parent_post = models.ForeignKey('self', blank=True, null=True)
 
     @property
     def is_comment(self):
-        if self.post:
+        if self.parent_post:
             return True
         else:
             return False
+
+    @property
+    def type(self):
+        if self.parent_post:
+            return self.Type.COMMENT
+        else:
+            return self.Type.POST
+
+    def __unicode__(self):
+        return "%s: %s" % (self.type, self.text[0:50])
+
+    class Type:
+        POST = "post"
+        COMMENT = "comment"
 
 
 class ViewLog(AbstractBase):
