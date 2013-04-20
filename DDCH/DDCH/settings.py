@@ -128,6 +128,8 @@ INSTALLED_APPS = (
     #'billing'
 )
 
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'uploads')
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
