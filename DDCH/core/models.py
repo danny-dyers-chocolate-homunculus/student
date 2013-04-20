@@ -7,6 +7,7 @@ import hashlib
 
 
 class AbstractBase(models.Model):
+
     """
     AbstractBase class for handling setting id's and
 
@@ -86,6 +87,7 @@ class Post(AbstractBase):
 
 
 class ViewLog(AbstractBase):
+
     """
     Used for keeping track of view counts of objects. Uses a generic relation
     to be used with any model type. This should be implemented in other apps views.
@@ -110,3 +112,12 @@ class ViewLog(AbstractBase):
         view.user = user
         view.save()
         return view
+
+
+class contact(AbstractBase):
+    name = models.CharField(max_length=255)
+    house = models.ForeignKey(House)
+    phone = models.CharField(max_length=12, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    website = models.URLField(null=True, blank=True)
+    notes = models.TextField(max_length=65535, blank=True, null=True)
