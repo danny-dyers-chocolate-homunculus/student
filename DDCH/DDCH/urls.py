@@ -11,6 +11,10 @@ urlpatterns = patterns('',
     url(r'^logout/$', 'core.views.custom_logout', name='logout'),
 
 
+    url(r'^analyse/$', 'bills.views.analyse_view', name='analyse'),
+    url(r'^expenses/$', 'bills.views.expense_view', name='expenses'),
+
+
     url(r'^$', DashboardView.as_view(), name='home'),
     # url(r'^DDCH/', include('DDCH.foo.urls')),
 
