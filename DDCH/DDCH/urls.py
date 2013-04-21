@@ -12,7 +12,7 @@ urlpatterns = patterns('',
                           {'next_page': '/'}),
 
 
-    url(r'^/$', DashboardView.as_view(), name='home'),
+    url(r'^$', DashboardView.as_view(), name='home'),
     # url(r'^DDCH/', include('DDCH.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
