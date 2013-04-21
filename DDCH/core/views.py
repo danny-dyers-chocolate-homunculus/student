@@ -8,6 +8,11 @@ from django.utils.decorators import method_decorator
 import pdb
 from django.core.exceptions import ImproperlyConfigured
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+from django.contrib.auth.views import logout
+from django.contrib import messages
+>>>>>>> cb4f1edae2ba6949e8154cca7989864e2494d656
 =======
 from django.contrib.auth.views import logout
 from django.contrib import messages
