@@ -13,16 +13,7 @@ class AbstractBase(models.Model):
     setting creation dates of objects.
 
     """
-    id = models.CharField(max_length=36, primary_key=True, editable=False)
     date_created = models.DateTimeField(auto_now_add=True)
-
-    def __init__(self, *args, **kwargs):
-        """
-        Overrides the Django __init__ method to set ID.
-        """
-        super(AbstractBase, self).__init__(*args, **kwargs)
-        if not self.id:
-            self.id = str(uuid.uuid4())
 
     @property
     def view_count(self):
