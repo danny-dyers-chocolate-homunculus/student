@@ -7,6 +7,8 @@ from django.views.generic import ListView
 from django.utils.decorators import method_decorator
 import pdb
 from django.core.exceptions import ImproperlyConfigured
+from django.contrib.auth.views import logout
+from django.contrib import messages
 
 
 def custom_login(request, **kwargs):
@@ -14,6 +16,14 @@ def custom_login(request, **kwargs):
         return redirect('/', **kwargs)
     else:
         return login(request, template_name='core/login.html')
+
+
+def custom_logout(request):
+    if not request.user.is_authenticated():
+        messages.add_message(request, messages.ERROR, 'No user logged in')
+        return logout(request, next_page='/login')
+    messages.add_message(request, messages.SUCCESS, 'Bye bye...')
+    return logout(request, next_page='/login')
 
 
 class DashboardView(ListView):
