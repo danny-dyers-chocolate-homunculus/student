@@ -13,7 +13,7 @@ class Issue(AbstractBase):
     description = models.TextField(max_length=65535)
     creation_date = models.DateField(auto_now_add=True)
     resolved = models.BooleanField(default=False)
-    resolution_date = models.DateField()
+    resolution_date = models.DateField(blank=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
