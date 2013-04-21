@@ -14,6 +14,14 @@
 @warning: hsl(0, 80%, 60%);
 @green: hsl(102, 50%, 50%);
 
+img, embed, object, video {
+max-width:100%;
+}
+
+.post img {
+	width: 100%;
+}
+
 // typography style
 
 h1, h2, h3, h4, h5, h6 {
@@ -111,18 +119,6 @@ nav span {
 	background-repeat: no-repeat no-repeat;
 }
 
-.post_avatar {
-	display: block;
-	width: 50px;
-	height: 50px;
-	border: 3px solid hsl(0, 0%, 80%);
-	.border (70px);
-	// background-image: url(http://api.twitter.com/1/users/profile_image?screen_name=waltercfilho&size=bigger);
-	background-size: 50px;
-	background-position: initial initial;
-	background-repeat: no-repeat no-repeat;
-}
-
 .app {
 	width: 100%;
 	padding-top: 3.75em;
@@ -162,41 +158,66 @@ nav span {
 	padding: 2*0.625em;
 	margin-left: 10%;
 	overflow: hidden;
+	width: 90%;
 }
 
 .post {
-	.border (6px);
-	background-color: hsl(0, 0%, 94%);
-	padding: 0.625em;
 	overflow: hidden;
-	border: 1px solid #ccc;
 	margin-top: 0.625em;
+	max-width: 50%;
 }
 
-.post:hover {
+.post_head {
+	width: 100%;
+	overflow: hidden;
+}
+
+.post_header {
+	float: left;
+}
+
+.post_actions {
+	float: right;
+	padding: 0.625em 0 0.625em 0.625em;
+	.opacity (0.1);
+}
+
+.post_actions .accept {
+	color: @green;
+}
+
+.post_avatar {
+	display: block;
+	float: left;
+	width: 50px;
+	padding-bottom: 50px;
+	// background-image: url(http://api.twitter.com/1/users/profile_image?screen_name=waltercfilho&size=bigger);
+	background-size: 50px;
+	background-position: initial initial;
+	background-repeat: no-repeat no-repeat;
+}
+
+.post small {
+	font-size: 0.8em;
+}
+
+.post_content {
+	width: 100%;
+	position: relative;
+	.border (6px);
+	background-color: hsl(0, 0%, 94%);
+	border: 1px solid #ccc;
+	padding: 0 0.625em 0.625em;
+	padding-left: 0.625em;
+	float: right;
+}
+
+.post_content:hover {
 	background-color: hsl(0, 0%, 97%);
 }
 
 .post:hover > .post_actions {
 	.opacity (1);
-}
-
-.post_options {
-	float: left;
-	position: relative;
-	overflow: visible;
-	height: 100%;
-}
-
-.post_content {
-	float: left;
-	padding-left: 0.625em;
-}
-
-.post_actions {
-	.opacity (0.1);
-	color: @green;
-	float: left;
 }
 
 .login_page {

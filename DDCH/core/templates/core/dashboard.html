@@ -6,17 +6,20 @@
 	<h2><i class='icon-comments-alt'></i> Your Stream</h2>
 			{% for post in post_list %}
 			<div class='post'>
-				<div class='post_options'>
-					<span class="post_avatar" style="background: url('{{ post.posted_by.profile_picture }}') no-repeat center center; background-size: 3em;"></span>
-				</div>
+				<div class="post_avatar" style="background: url('{{ post.posted_by.profile_picture }}') no-repeat center center; background-size: 3em;"></div>
 				<div class='post_content'>
 					<div class='post_head'>
-						<h3>{{ post.text }}</h3>
-						<small><i class='icon-time'></i> 2 minutes ago <i class='icon-map-marker'></i> Tesco Express, Cathays</small>
+						<div class='post_header'>
+							<h3>{{ post.text }} </h3>
+							<p><small><i class='icon-time'></i> {{post.date_created}}, near </small><small><i class='icon-map-marker'></i> Cathays, Cardiff</small></p>
+						</div>
+						<div class='post_actions'>
+							<a class='accept' href="#"><i class='icon-ok-sign'></i></a>
+						</div>
 					</div>
-				</div>
-				<div class='post_actions'>
-						<a href="#"><i class='icon-ok-sign'></i></a>
+					{% if post.image %}
+						<img src="{{ MEDIA_URL }}{{ post.image }}">
+					{% endif %}
 				</div>
 			</div>
 			{% endfor %}
