@@ -44,6 +44,15 @@ class House(AbstractBase):
     def __unicode__(self):
         return "%s: %s" % (self.postcode, self.name)
 
+    # def get_house_balance(self):
+    #     bills = Bill.objects.filter(house=self.user.house)
+
+    #     balance = 0
+
+    #     for bill in bills:
+    #         for payment in bill.billpayment_set.all():
+    #             balance =+ payment.amount_due - payment.amount_paid
+
 
 class User(AbstractUser, AbstractBase):
     house = models.ForeignKey(House, blank=True, null=True)
@@ -71,6 +80,19 @@ class User(AbstractUser, AbstractBase):
         Returns the users monthly rent cost.
         """
         return self.house.rpa/self.house.rooms
+
+
+    def get_balance(self):
+        from bills.models import Bill, BillPayment
+        payments = BillPayment.objects.filter(user=self)
+
+        balance = 0
+
+        for payment in payments:
+            balance += payment.amount_due - payment.amount_paid
+
+        return balance
+
 
 
 class Post(AbstractBase):
