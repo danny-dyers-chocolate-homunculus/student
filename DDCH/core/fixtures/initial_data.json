@@ -1,0 +1,157 @@
+[
+  {
+    "pk": 2,
+    "model": "core.user",
+    "fields": {
+      "username": "test",
+      "first_name": "",
+      "last_name": "",
+      "groups": [],
+      "phone": "",
+      "house": 1,
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2013-04-21T12:15:24Z",
+      "landlord": false,
+      "user_permissions": [],
+      "date_created": "2013-04-21T12:15:24.325Z",
+      "password": "pbkdf2_sha256$10000$oPt5aDUlCcs5$rr9F5TZrLPlqpJtxwTZ1+KdkvFKpkdMv2eFYDQuYeZ8=",
+      "email": "test@test.com",
+      "date_joined": "2013-04-21T12:15:24Z"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.user",
+    "fields": {
+      "username": "test1",
+      "first_name": "",
+      "last_name": "",
+      "groups": [],
+      "phone": "",
+      "house": 1,
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2013-04-21T12:15:36Z",
+      "landlord": false,
+      "user_permissions": [],
+      "date_created": "2013-04-21T12:15:36.265Z",
+      "password": "pbkdf2_sha256$10000$9sqBQedTyKlg$45cOogp6mYtxIDQs4J6oRTzpPYrrmF9G6iVBM/SpdYM=",
+      "email": "test1@test.com",
+      "date_joined": "2013-04-21T12:15:36Z"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "core.user",
+    "fields": {
+      "username": "test2",
+      "first_name": "",
+      "last_name": "",
+      "groups": [],
+      "phone": "",
+      "house": 1,
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2013-04-21T12:15:46Z",
+      "landlord": false,
+      "user_permissions": [],
+      "date_created": "2013-04-21T12:15:46.208Z",
+      "password": "pbkdf2_sha256$10000$aLja6nyX56Ii$cM/wnzE85sg2ZQct6ooYqnCEWosjF3cEWgAjFnBi2VA=",
+      "email": "test2@test.com",
+      "date_joined": "2013-04-21T12:15:46Z"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "core.user",
+    "fields": {
+      "username": "test3",
+      "first_name": "",
+      "last_name": "",
+      "groups": [],
+      "phone": "",
+      "house": 1,
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2013-04-21T12:16:03Z",
+      "landlord": false,
+      "user_permissions": [],
+      "date_created": "2013-04-21T12:16:03.353Z",
+      "password": "pbkdf2_sha256$10000$3R0VyI6bq9Tk$HWrli2SFCelYc6xTi5M5sSjlNz6GtoX0a8BxAEvzVv8=",
+      "email": "test3@test.com",
+      "date_joined": "2013-04-21T12:16:03Z"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.house",
+    "fields": {
+      "name": "House 1",
+      "rpa": 1000.0,
+      "rooms": 9,
+      "landlord": null,
+      "date_created": "2013-04-21T12:16:24.598Z",
+      "postcode": "LL15 2H"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.post",
+    "fields": {
+      "date_created": "2013-04-21T12:17:10.467Z",
+      "posted_by": 2,
+      "image": "",
+      "parent_post": null,
+      "text": "This is a test post"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.post",
+    "fields": {
+      "date_created": "2013-04-21T12:17:20.441Z",
+      "posted_by": 3,
+      "image": "",
+      "parent_post": null,
+      "text": "This is another test post"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.post",
+    "fields": {
+      "date_created": "2013-04-21T12:17:29.423Z",
+      "posted_by": 4,
+      "image": "",
+      "parent_post": null,
+      "text": "This is another test post"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "core.post",
+    "fields": {
+      "date_created": "2013-04-21T12:17:34.411Z",
+      "posted_by": 5,
+      "image": "",
+      "parent_post": null,
+      "text": "This is another test post"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "core.post",
+    "fields": {
+      "date_created": "2013-04-21T12:19:08.404Z",
+      "posted_by": 5,
+      "image": "",
+      "parent_post": null,
+      "text": "This is another test post which should "
+    }
+  }
+]
