@@ -45,6 +45,9 @@ class House(AbstractBase):
     name = models.CharField(max_length=100)
     postcode = models.CharField(max_length=7)
     rooms = models.IntegerField()
+    landlord = models.OneToOneField('User', blank=True, null=True, related_name='landlord_user')
+    #Rent per annum
+    rpa = models.FloatField()
 
     def __unicode__(self):
         return "%s: %s" % (self.postcode, self.name)
@@ -69,6 +72,13 @@ class User(AbstractUser, AbstractBase):
                                             self._get_email_hash(),
                                             self.ROBOHASH_URL,
                                             self._get_email_hash())
+
+    @property
+    def monthly_rent(self):
+        """
+        Returns the users monthly rent cost.
+        """
+        return self.house.rpa/self.house.rooms
 
 
 class Post(AbstractBase):
@@ -97,6 +107,9 @@ class Post(AbstractBase):
     class Type:
         POST = "post"
         COMMENT = "comment"
+
+    class Meta:
+        ordering = ['-date_created']
 
 
 class ViewLog(AbstractBase):
