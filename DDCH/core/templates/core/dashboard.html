@@ -3,8 +3,7 @@
 {% block title %} Dashboard {% endblock %}
 
 {% block content %}
-	<h2>Stream</h2>
-			<p>Keep up with the latest activity.</p>
+	<h2><i class='icon-comments-alt'></i> Your Stream</h2>
 			{% for post in post_list %}
 			<div class='post'>
 				<div class='post_options'>
@@ -12,8 +11,8 @@
 				</div>
 				<div class='post_content'>
 					<div class='post_head'>
-						<h3>{{post.text}}</h3>
-						<small>2 minutes ago <i class='icon-map-marker'></i> Tesco Express, Cathays</small>
+						<h3>{{ post.text }}</h3>
+						<small><i class='icon-time'></i> 2 minutes ago <i class='icon-map-marker'></i> Tesco Express, Cathays</small>
 					</div>
 				</div>
 				<div class='post_actions'>

@@ -4,6 +4,8 @@
 	<meta charset=utf-8 />
 	<title>cfhack - {% block title %} {% endblock %}</title>
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
+	<script type="text/javascript" source='{{ STATIC_URL }}js/jquery.js'></script>
+	<script type="text/javascript" source='{{ STATIC_URL }}js/bootstrap.js'></script>
 </head>
 <body>
 	<div class='topbar'>
@@ -12,7 +14,18 @@
 			<ul class='nav menu'>
 				<li>
 					<span class="avatar" style="background: url('{{ user.profile_picture }}') no-repeat center center; background-size: 1.875em;"></span>
-					<a href="#">{{user.username}} <i class='icon-chevron-down'></i></a>
+				</li>
+				<li>
+					<div class="dropdown" style='position: relative;'>
+					  <a href="#" class='dropdown-toggle' data-toggle='dropdown'>{{user.username}} <span class='icon-chevron-down'></span></a>
+					  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+					    <li><a tabindex="-1" href="#">Action</a></li>
+					    <li><a tabindex="-1" href="#">Another action</a></li>
+					    <li><a tabindex="-1" href="#">Something else here</a></li>
+					    <li class="divider"></li>
+					    <li><a tabindex="-1" href="#">Separated link</a></li>
+					  </ul>
+					</div>
 				</li>
 				<li class='balance'>&pound; 215.00</li>
 				<li class='balance'><a href="#"><i class='icon-off'></i></a></li>

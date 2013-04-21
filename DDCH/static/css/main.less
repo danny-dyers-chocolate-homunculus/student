@@ -4,6 +4,7 @@
 @import 'functions.less';
 @import 'font-awesome-ie7.less';
 @import 'font-awesome.less';
+@import 'bootstrap.css';
 @import 'http://fonts.googleapis.com/css?family=Signika:400,300';
 
 // colors
@@ -23,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 // common properties
 a, a:visited {
 	color: inherit;
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 a:hover {
@@ -139,10 +140,8 @@ nav span {
 .options div {
 	cursor: pointer;
 	text-align: center;
-	padding: 0.625em;
+	padding: 10%;
 	border-bottom: 0.1em solid #555;
-	// -webkit-box-shadow: inset -10px 0px 1px 0px rgba(0, 0, 0, 1);
-	// box-shadow: inset -10px 0px 1px 0px rgba(0, 0, 0, 1);
 }
 
 .options .selected {
@@ -171,7 +170,7 @@ nav span {
 	padding: 0.625em;
 	overflow: hidden;
 	border: 1px solid #ccc;
-	position: absolute;
+	margin-top: 0.625em;
 }
 
 .post:hover {
@@ -190,15 +189,14 @@ nav span {
 }
 
 .post_content {
-	float: right;
+	float: left;
 	padding-left: 0.625em;
 }
 
 .post_actions {
 	.opacity (0.1);
-	position: absolute;
-	bottom: 0.1*0.625em;
-	right: 0.5*0.625em;
+	color: @green;
+	float: left;
 }
 
 .login_page {
@@ -229,3 +227,5 @@ nav span {
 input {
 	font-family: 'Signika', helvetica, sans-serif;
 }
+
+.dropdown { position: relative;}
