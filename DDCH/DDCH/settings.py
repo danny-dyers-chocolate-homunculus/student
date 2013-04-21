@@ -133,6 +133,8 @@ INSTALLED_APPS = (
 
 LOGIN_URL = '/login/'
 
+LOGIN_REDIRECT_URL = '/'
+
 MEDIA_ROOT = os.path.join(SITE_ROOT, 'uploads')
 
 
