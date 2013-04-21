@@ -6,6 +6,11 @@
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
 </head>
 <body class='login_page'>
+	{% if messages %}
+    {% for message in messages %}
+		{{ message }}
+    {% endfor %}
+	{% endif %}
 	<div class='login_module'>
 		<div class='login_head'>
 			<h3>cfhack<sup><small>&alpha;</small></sup></h3>

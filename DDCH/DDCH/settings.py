@@ -51,7 +51,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+# MEDIA_ROOT = ''
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.humanize',
     'core',
     #'django.contrib.admindocs',
     'messaging',
@@ -131,6 +132,8 @@ INSTALLED_APPS = (
 )
 
 LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = '/'
 
 MEDIA_ROOT = os.path.join(SITE_ROOT, 'uploads')
 
