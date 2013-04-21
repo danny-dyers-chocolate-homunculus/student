@@ -10,10 +10,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^login/$', 'core.views.custom_login', name='login'),
-    url(r'^logout/$', 'django.contrib.auth.views.logout',
-                          {'next_page': '/'}),
 
-    url(r'^/$', DashboardView.as_view(), name='home'),
+    url(r'^$', DashboardView.as_view(), name='home'),
     url(r'^logout/$', 'core.views.custom_logout', name='logout'),
 
     # url(r'^DDCH/', include('DDCH.foo.urls')),

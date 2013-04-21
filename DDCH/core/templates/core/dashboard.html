@@ -2,6 +2,8 @@
 
 {% block title %} Dashboard {% endblock %}
 
+{% load humanize %}
+
 {% block content %}
 	<h2><i class='icon-comments-alt'></i> Your Stream</h2>
 			{% for post in post_list %}
@@ -11,7 +13,7 @@
 					<div class='post_head'>
 						<div class='post_header'>
 							<h3>{{ post.text }} </h3>
-							<p><small><i class='icon-time'></i> {{post.date_created}}, near </small><small><i class='icon-map-marker'></i> Cathays, Cardiff</small></p>
+							<p><small><i class='icon-time'></i> {{post.date_created | naturaltime}}, near </small><small><i class='icon-map-marker'></i> Cathays, Cardiff</small></p>
 						</div>
 						<div class='post_actions'>
 							<a class='accept' href="#"><i class='icon-ok-sign'></i></a>
