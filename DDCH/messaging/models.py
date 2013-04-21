@@ -19,9 +19,9 @@ class Message(AbstractBase):
     message = models.TextField(max_length=65535)
     read_date = models.DateField(null=True, blank=True)
 
-    def save(self):
+    def __init__(self):
         if(self.recipient.phone):
             client = TwilioRestClient(settings.TWILLIO_ACCOUNT, settings.TWILLIO_TOKEN)
             message = client.sms.messages.create(
                 to=self.recipient.phone, from_="+441827231000", body=self.message+" - from "+str(self.sender))
-        super(Message, self).save()
+        super(Message, self).__init__()

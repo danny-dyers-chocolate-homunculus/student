@@ -5,6 +5,7 @@ from django.contrib.contenttypes import generic
 from django.conf import settings
 from twilio.rest import TwilioRestClient
 
+
 class Issue(AbstractBase):
     title = models.CharField(max_length=255)
     house = models.ForeignKey(House)
@@ -19,3 +20,5 @@ class Issue(AbstractBase):
 class IssueComment(AbstractBase):
     issue = models.ForeignKey(Issue)
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
+    creation_date = models.DateField(auto_now_add=True)
+    body = models.TextField(max_length=65535)
