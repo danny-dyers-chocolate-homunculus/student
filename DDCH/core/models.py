@@ -43,6 +43,7 @@ class House(AbstractBase):
     A house that multiple users are attached to.
     """
     name = models.CharField(max_length=100)
+    landlord = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="house_landlord")
     postcode = models.CharField(max_length=7)
     rooms = models.IntegerField()
 
