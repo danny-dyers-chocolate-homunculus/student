@@ -130,7 +130,11 @@ INSTALLED_APPS = (
     #'billing'
 )
 
+<<<<<<< HEAD
 LOGIN_URL = '/login/'
+=======
+LOGIN_URL = 'login/'
+>>>>>>> 62294ad1d6d4e35f6f43afd0fcdfd0637e6edcb1
 
 MEDIA_ROOT = os.path.join(SITE_ROOT, 'uploads')
 
@@ -163,6 +167,3 @@ LOGGING = {
         },
     }
 }
-
-TWILLIO_ACCOUNT = "AC54e70c20c39d9c982827a1a7f5c926f4"
-TWILLIO_TOKEN = "2732c9ae78b018ccaed3950da9531fa3"

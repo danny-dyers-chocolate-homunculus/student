@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8 />
+	<title>cfhack - {% block title %} {% endblock %}</title>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
+</head>
+<body>
+	<div class='topbar'>
+		<a class="brand" href="http://localhost/tobook.me/public/">cfhack<sup><small>BETA</small></sup></a>
+		<nav>
+			<ul class='nav menu'>
+				<li>
+					<span class="avatar" style="background: url('{{ user.profile_picture }}') no-repeat center center; background-size: 1.875em;"></span>
+					<a href="#">{{user.username}} <i class='icon-chevron-down'></i></a>
+				</li>
+				<li class='balance'>&pound; 215.00</li>
+				<li class='balance'><a href="#"><i class='icon-off'></i></a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class='app'>
+		<div class='options'>
+			<div class='option selected'>
+				<p><i class='icon-comments-alt'></i></p>
+				<p>Stream</p>
+			</div>
+			<div class='option'>
+				<p><i class='icon-money'></i></p>
+				<p>Expenses</p>
+			</div>
+			<div class='option'>
+				<p><i class='icon-bar-chart'></i></p>
+				<p>Analyze</p>
+			</div>
+			<div class='option'>
+				<p><i class='icon-book'></i></p>
+				<p>Manage</p>
+			</div>
+			<div class='option'>
+				<p><i class='icon-wrench'></i></p>
+				<p>Settings</p>
+			</div>
+		</div>
+		<div class='content'>
+			{% block content %}
+
+			{% endblock %}
+		</div>
+	</div>
+</body>
+</html>

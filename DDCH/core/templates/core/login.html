@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8 />
+	<title>makazi</title>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
+</head>
+<body class='login_page'>
+	<div class='login_module'>
+		<div class='login_head'>
+			<h3>cfhack<sup><small>&alpha;</small></sup></h3>
+		</div>
+		<div class='login_form'>
+			<p>Please insert your details.</p>
+			<form action="" method="post">
+				{% csrf_token %}
+				<p><input type='text' name='username' placeholder='Username'></p>
+				<p><input type='password' name='password' placeholder='Password'></p>
+				<input type='submit'>
+			</form>
+		</div>
+		</div>
+	</div>
+</body>
+</html>
