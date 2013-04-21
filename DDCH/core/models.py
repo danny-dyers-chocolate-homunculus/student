@@ -47,6 +47,9 @@ class House(AbstractBase):
     postcode = models.CharField(max_length=7)
     rooms = models.IntegerField()
 
+    def __unicode__(self):
+        return "%s: %s" % (self.postcode, self.name)
+
 
 class User(AbstractUser, AbstractBase):
     house = models.ForeignKey(House, blank=True, null=True)
