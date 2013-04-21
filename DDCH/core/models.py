@@ -41,6 +41,7 @@ class House(AbstractBase):
 
 class User(AbstractUser, AbstractBase):
     house = models.ForeignKey(House, blank=True, null=True)
+    phone = models.CharField(max_length=12, null=True, blank=True)
 
     GRAVATAR_URL = "http://www.gravatar.com/avatar/"
     ROBOHASH_URL = "http://robohash.org/"

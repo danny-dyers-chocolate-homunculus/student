@@ -20,7 +20,8 @@ class Message(AbstractBase):
     read_date = models.DateField(null=True, blank=True)
 
     def save(self):
-        account = "AC54e70c20c39d9c982827a1a7f5c926f4"
-        token = "2732c9ae78b018ccaed3950da9531fa3"
-        client = TwilioRestClient(account, token)
+        if(self.recipient.phone):
+            client = TwilioRestClient(settings.TWILLIO_ACCOUNT, settings.TWILLIO_TOKEN)
+            message = client.sms.messages.create(
+                to=self.recipient.phone, from_="+441827231000", body=self.message+" - from "+str(self.sender))
         super(Message, self).save()
