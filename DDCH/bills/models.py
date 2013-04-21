@@ -12,7 +12,6 @@ class Bill(AbstractBase):
     amount = models.DecimalField(max_digits=8, decimal_places=2)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL)
     house = models.ForeignKey(House)
-    creation_date = models.DateField(auto_now_add=True)
     due_date = models.DateField()
 
     WEEKLY = 'W'
