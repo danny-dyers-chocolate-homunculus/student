@@ -9,7 +9,6 @@ from django.core.exceptions import ImproperlyConfigured
 from django.contrib.auth.views import logout
 from django.contrib import messages
 
-
 def custom_login(request, **kwargs):
     if request.user.is_authenticated():
         return redirect('/', **kwargs)
