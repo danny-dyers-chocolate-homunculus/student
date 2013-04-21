@@ -43,6 +43,8 @@ class Bill(AbstractBase):
                 bill_payment.amount_due = float(self.amount) / len(user_set.all())
                 bill_payment.save()
 
+    def __unicode__(self):
+        return "bill: "+self.title
 
 class BillPayment(AbstractBase):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
@@ -58,3 +60,6 @@ class BillPayment(AbstractBase):
         decimal_places=2,
         default=0
     )
+
+    def __unicode__(self):
+        return self.bill.title + " payment (by "+self.user.username+")"
