@@ -34,26 +34,19 @@ class Bill(AbstractBase):
 
     def save(self):
         if not self.id:
+            super(Bill, self).save()
             user_set = self.house.user_set
             for user in user_set.all():
                 bill_payment = BillPayment()
                 bill_payment.user = user
                 bill_payment.bill = self
-                amount_due = self.amount / len(user_set.all())
-        super(Bill, self).save()
+                bill_payment.amount_due = float(self.amount) / len(user_set.all())
+                bill_payment.save()
 
 
 class BillPayment(AbstractBase):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
-    bill = generic.GenericForeignKey('content_type', 'object_id')
-    object_id = models.CharField(max_length=36)
-    content_type = models.ForeignKey(
-        ContentType,
-        limit_choices_to=(
-            models.Q(app_label='bills', model='recurringbill') |
-            models.Q(app_label='bills', model='fixedbill')
-        )
-    )
+    bill = models.ForeignKey(Bill)
 
     amount_due = models.DecimalField(
         max_digits=8,
