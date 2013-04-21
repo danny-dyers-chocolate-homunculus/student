@@ -12,10 +12,10 @@
 @primary: hsl(208, 100%, 60%);
 @atention: spin(@primary, -178);
 @warning: hsl(0, 80%, 60%);
-@green: hsl(102, 50%, 50%);
+@green: hsl(172, 72%, 43%);
 
 img, embed, object, video {
-max-width:100%;
+	max-width:100%;
 }
 
 .post img {
@@ -35,8 +35,13 @@ a, a:visited {
 	text-decoration: none !important;
 }
 
-a:hover {
+li:hover {
+	background: none;
+}
 
+a:hover {
+	color: none;
+	background-color: none !important;
 }
 
 // Style by walter carvalho
@@ -250,3 +255,70 @@ input {
 }
 
 .dropdown { position: relative;}
+
+.line {
+	width: 100%;
+	overflow: hidden;
+}
+
+.stream {
+	padding: 0.625em; 
+}
+
+.analyse {
+	padding: 0.625em;
+}
+
+.graph {
+	max-width: 33.333333%;
+	background: @green;
+	.border (5px);
+}
+
+.graph_header {
+	padding: 0.625em;
+	text-align: center;
+	color: white;
+}
+
+.graph_summary {
+	background-color: @white;
+	color: @green;
+}
+
+.graph_summary small {
+	color: hsl(0, 0%, 50%);
+}
+
+.field {
+	padding: 0.5*0.625em;
+	text-align: center;
+}
+
+.field_half {
+	.field;
+	width: 50%;
+	float: left;
+	border-top: 0 !important;
+	border: 1px solid #ccc;
+}
+
+.field_half:last-child {
+	border-left: 0;
+}
+
+path {
+    stroke: white;
+    stroke-width: 3;
+    fill: none;
+}
+ 
+line {
+    stroke: white;
+}
+ 
+text {
+    font-family: 'Signika';
+    font-size: 0.8em;
+    color: white;
+}

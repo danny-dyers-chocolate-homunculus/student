@@ -1,0 +1,31 @@
+{% extends "core/default.html" %}
+
+{% block title %} Analyze {% endblock %}
+
+{% load humanize %}
+
+{% block content %}
+	<h2><i class='icon-bar-chart'></i> Analyze</h2>
+	<div class='line analyse'>
+		<div class='graph'>
+			<div class='graph_header'>
+				<h4>Monthly Bills</h4>
+			</div>
+			<div class='graph_content'>
+
+			</div>
+			<div class='graph_summary'>
+				<div class='line'>
+					<div class='field_half'>
+						<small>Total Expenses</small>
+						<h3>&pound;1,960.00</h3>
+					</div>
+					<div class='field_half'>
+						<small>Expenses/Tenant</small>
+						<h3>&pound;653.34</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

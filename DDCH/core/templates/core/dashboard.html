@@ -6,6 +6,7 @@
 
 {% block content %}
 	<h2><i class='icon-comments-alt'></i> Your Stream</h2>
+	<div class='stream'>
 			{% for post in post_list %}
 			<div class='post'>
 				<div class="post_avatar" style="background: url('{{ post.posted_by.profile_picture }}') no-repeat center center; background-size: 3em;"></div>
@@ -25,4 +26,5 @@
 				</div>
 			</div>
 			{% endfor %}
+	</div>
 {% endblock %}

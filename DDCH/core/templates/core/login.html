@@ -8,7 +8,9 @@
 <body class='login_page'>
 	{% if messages %}
     {% for message in messages %}
-		{{ message }}
+    <div class='messages'>
+			<p>{{ message }}</p>
+		</div>
     {% endfor %}
 	{% endif %}
 	<div class='login_module'>
@@ -21,7 +23,7 @@
 				{% csrf_token %}
 				<p><input type='text' name='username' placeholder='Username'></p>
 				<p><input type='password' name='password' placeholder='Password'></p>
-				<input type='submit'>
+				<input type='submit' class='btn btn-success'>
 			</form>
 		</div>
 		</div>

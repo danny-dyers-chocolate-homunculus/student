@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
 	<meta charset=utf-8 />
-	<title>cfhack - {% block title %} {% endblock %}</title>
+	<title>kuishi - {% block title %} {% endblock %}</title>
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
-	<script type="text/javascript" source='{{ STATIC_URL }}js/jquery.js'></script>
-	<script type="text/javascript" source='{{ STATIC_URL }}js/bootstrap.js'></script>
+	<script type="text/javascript" src='{{ STATIC_URL }}js/jquery.js'></script>
+	<script type="text/javascript" src='{{ STATIC_URL }}js/bootstrap.js'></script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
 <body>
 	<div class='topbar'>
-		<a class="brand" href="http://localhost/tobook.me/public/">cfhack<sup><small>BETA</small></sup></a>
+		<a class="brand" href="http://localhost/tobook.me/public/">kuishi<sup><small>BETA</small></sup></a>
 		<nav>
 			<ul class='nav menu'>
 				<li>
-					<span class="avatar" style="background: url('{{ user.profile_picture }}') no-repeat center center; background-size: 1.875em;"></span>
+					<span class="avatar" style="background: url('{{ user.profile_picture }}') no-repeat center center rgba(255, 255, 255, 0.5); background-size: 1.875em;"></span>
 				</li>
 				<li>
-					<div class="dropdown" style='position: relative;'>
+					<div class="dropdown">
 					  <a href="#" class='dropdown-toggle' data-toggle='dropdown'>{{user.username}} <span class='icon-chevron-down'></span></a>
 					  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 					    <li><a tabindex="-1" href="#">Action</a></li>
@@ -28,32 +29,42 @@
 					</div>
 				</li>
 				<li class='balance'>&pound; 215.00</li>
-				<li class='balance'><a href="#"><i class='icon-off'></i></a></li>
+				<li class='balance'><a href="{% url 'logout' %}"><i class='icon-off'></i></a></li>
 			</ul>
 		</nav>
 	</div>
 	<div class='app'>
 		<div class='options'>
-			<div class='option selected'>
-				<p><i class='icon-comments-alt'></i></p>
-				<p>Stream</p>
-			</div>
-			<div class='option'>
-				<p><i class='icon-money'></i></p>
-				<p>Expenses</p>
-			</div>
-			<div class='option'>
-				<p><i class='icon-bar-chart'></i></p>
-				<p>Analyze</p>
-			</div>
-			<div class='option'>
-				<p><i class='icon-book'></i></p>
-				<p>Manage</p>
-			</div>
-			<div class='option'>
-				<p><i class='icon-wrench'></i></p>
-				<p>Settings</p>
-			</div>
+			<a href="{% url 'home' %}">
+				<div class='option selected'>
+					<p><i class='icon-comments-alt'></i></p>
+					<p>Stream</p>
+				</div>
+			</a>
+			<a href="{% url 'expenses' %}">
+				<div class='option'>
+					<p><i class='icon-money'></i></p>
+					<p>Expenses</p>
+				</div>
+			</a>
+			<a href="{% url 'analyse' %}">
+				<div class='option'>
+					<p><i class='icon-bar-chart'></i></p>
+					<p>Analyze</p>
+				</div>
+			</a>
+			<a href="#">
+				<div class='option'>
+					<p><i class='icon-book'></i></p>
+					<p>Manage</p>
+				</div>
+			</a>
+			<a href="#">
+				<div class='option'>
+					<p><i class='icon-wrench'></i></p>
+					<p>Settings</p>
+				</div>
+			</a>
 		</div>
 		<div class='content'>
 			{% block content %}
@@ -61,5 +72,6 @@
 			{% endblock %}
 		</div>
 	</div>
+<script type="text/javascript" src='{{ STATIC_URL }}js/main.js'></script>
 </body>
 </html>
