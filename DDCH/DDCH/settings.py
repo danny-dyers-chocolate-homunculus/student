@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     #'django.contrib.admindocs',
     'messaging',
     'bills',
+    'issues',
     #'billing'
 )
 
