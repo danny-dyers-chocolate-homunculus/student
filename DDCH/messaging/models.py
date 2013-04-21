@@ -21,6 +21,7 @@ class Message(AbstractBase):
 
     def save(self):
         if(self.recipient.phone):
+            #TODO: We should do this in a signal receiver instead
             client = TwilioRestClient(settings.TWILLIO_ACCOUNT, settings.TWILLIO_TOKEN)
             message = client.sms.messages.create(
                 to=self.recipient.phone, from_="+441827231000", body=self.message+" - from "+str(self.sender))
