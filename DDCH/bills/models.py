@@ -7,29 +7,14 @@ from django.conf import settings
 # Create your models here.
 
 
-class AbstractBill(AbstractBase):
+class Bill(AbstractBase):
     title = models.CharField(max_length=255)
     amount = models.DecimalField(max_digits=8, decimal_places=2)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL)
     house = models.ForeignKey(House)
     creation_date = models.DateField(auto_now_add=True)
-
-    class Meta():
-        abstract = True
-
-
-class FixedBill(AbstractBill):
     due_date = models.DateField()
 
-    def save(self):
-        if not self.id:
-            for user in self.house.user_set:
-                BillPayment = BillPayment(user, )
-        super(FixedBill, self).save()
-
-
-
-class RecurringBill(AbstractBill):
     WEEKLY = 'W'
     DAILY = 'D'
     MONTHLY = 'M'
@@ -44,8 +29,19 @@ class RecurringBill(AbstractBill):
 
     recurance = models.CharField(max_length=1,
                                  choices=RECURANCE_CHOICES,
-                                 default=MONTHLY)
-    start_date = models.DateField()
+                                 default=MONTHLY,
+                                 blank=True,
+                                 )
+
+    def save(self):
+        if not self.id:
+            user_set = self.house.user_set
+            for user in user_set.all():
+                bill_payment = BillPayment()
+                bill_payment.user = user
+                bill_payment.bill = self
+                amount_due = self.amount / user_set.len()
+        super(Bill, self).save()
 
 
 class BillPayment(AbstractBase):
