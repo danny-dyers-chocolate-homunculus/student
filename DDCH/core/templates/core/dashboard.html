@@ -10,6 +10,9 @@
 					<span class="post_avatar" style="background: url('{{ post.posted_by.profile_picture }}') no-repeat center center; background-size: 3em;"></span>
 				</div>
 				<div class='post_content'>
+					{% if post.image %}
+						<img src="{{ MEDIA_URL }}{{ post.image }}">
+					{% endif %}
 					<div class='post_head'>
 						<h3>{{ post.text }}</h3>
 						<small><i class='icon-time'></i> 2 minutes ago <i class='icon-map-marker'></i> Tesco Express, Cathays</small>
