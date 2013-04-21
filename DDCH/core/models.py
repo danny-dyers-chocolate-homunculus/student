@@ -52,12 +52,6 @@ class House(AbstractBase):
 
     def __unicode__(self):
         return "%s: %s" % (self.postcode, self.name)
-<<<<<<< HEAD
-
-    def __unicode__(self):
-        return "%s: %s" % (self.postcode, self.name)
-=======
->>>>>>> cb4f1edae2ba6949e8154cca7989864e2494d656
 
 
 class User(AbstractUser, AbstractBase):
