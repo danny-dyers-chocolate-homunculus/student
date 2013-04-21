@@ -39,7 +39,7 @@ class Bill(AbstractBase):
                 bill_payment = BillPayment()
                 bill_payment.user = user
                 bill_payment.bill = self
-                amount_due = self.amount / user_set.len()
+                amount_due = self.amount / len(user_set.all())
         super(Bill, self).save()
 
 
